@@ -1,0 +1,33 @@
+﻿<!--
+//===============================================================================
+// Microsoft FastTrack for Azure
+// Azure Active Directory B2C User Administration Samples
+//===============================================================================
+// Copyright © Microsoft Corporation.  All rights reserved.
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+// FITNESS FOR A PARTICULAR PURPOSE.
+//===============================================================================
+-->
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="page-header">
+    <h1>Welcome to the B2C User Administration Application</h1>
+</div>
+<div class="well">
+    @ViewBag.Message
+</div>
+<div class="row">
+    <div class="col-md-12"><b>Your Organization:</b> @ViewBag.CurrentOrganization</div>
+</div>
+@if (ViewBag.IsAdmin)
+{
+    <div class="row" style="margin-top: 20px">
+        <div class="col-md-12">
+            @Html.ActionLink("Manage Your Users", "List", new { }, new { @class = "btn btn-primary btn-lg" })
+        </div>
+    </div>
+}

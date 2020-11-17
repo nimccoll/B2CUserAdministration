@@ -1,0 +1,111 @@
+﻿<!--
+//===============================================================================
+// Microsoft FastTrack for Azure
+// Azure Active Directory B2C User Administration Samples
+//===============================================================================
+// Copyright © Microsoft Corporation.  All rights reserved.
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+// FITNESS FOR A PARTICULAR PURPOSE.
+//===============================================================================
+-->
+@model IEnumerable<AADB2C.UserAdmin.Models.Document>
+
+@{
+    ViewBag.Title = "Manage Your Users";
+}
+
+<h2>Manager Your Users</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Sign In Name
+        </th>
+        <th>
+            Issuer
+        </th>
+        <th>
+            Issuer User Id
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Display Name
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            User Role
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.signInName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.issuer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.issuerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.displayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userRole)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { objectId = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { objectId = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
+<nav>
+    <ul class="pager">
+        <li class="@ViewBag.PreviousClass">
+            @if (ViewBag.PreviousClass.Contains("disabled"))
+            {
+                <a href="Javascript:void(0)">Previous</a>
+            }
+            else
+            {
+                @Html.ActionLink("Previous", "List", "Home", new { startRow = ViewBag.PreviousRow, numberOfRows = ViewBag.NumberOfRows })
+            }
+        </li>
+        <li class="@ViewBag.NextClass">
+            @if (ViewBag.NextClass.Contains("disabled"))
+            {
+                <a href="Javascript:void(0)">Next</a>
+            }
+            else
+            {
+                @Html.ActionLink("Next", "List", "Home", new { startRow = ViewBag.NextRow, numberOfRows = ViewBag.NumberOfRows })
+            }
+        </li>
+    </ul>
+</nav>

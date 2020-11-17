@@ -1,0 +1,25 @@
+﻿{
+  "userType": "emailAddress",
+  "Users": [
+    //{
+    //  // Local account only
+    //  "signInName": "nickjmcoll@gmail.com",
+    //  "displayName": "Nicholas McCollum (GMail)",
+    //  "firstName": "Nicholas",
+    //  "lastName": "McCollum",
+    //  "password": "Pass!w0rd",
+    //  "extension_Organization": "NickOfTime",
+    //  "extension_UserRole": "User"
+    //}
+    {
+      // Social account only
+      "issuer": "https://sts.windows.net/18aa0090-a790-4975-89e1-74502d702712/",
+      "issuerUserId": "778763fc-91b3-4ea8-828e-38f9e3412b8f",
+      "displayName": "Nick McCollum (nimccolldir)",
+      "firstName": "Nick",
+      "lastName": "McCollum",
+      "extension_Organization": "NickOfTime",
+      "extension_UserRole":  "User"
+    }
+  ]
+}

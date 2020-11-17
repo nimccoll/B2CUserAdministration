@@ -1,0 +1,164 @@
+﻿<!--
+//===============================================================================
+// Microsoft FastTrack for Azure
+// Azure Active Directory B2C User Administration Samples
+//===============================================================================
+// Copyright © Microsoft Corporation.  All rights reserved.
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+// FITNESS FOR A PARTICULAR PURPOSE.
+//===============================================================================
+-->
+@model AADB2C.UserAdmin.Models.AccountModel
+
+@{
+    ViewBag.Title = "Create User";
+}
+
+<h2>Create User</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>User Details</h4>
+        @if (ViewBag.Message != null)
+        {
+            <p>@ViewBag.Message</p>
+        }
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <hr />
+        <div class="form-group">
+            <label class="control-label col-md-2" for="accountType">Account Type</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.accountType,
+                    new SelectList(
+                        new List<Object>
+                        {
+                            new { value = "Federated Active Directory" , text = "Federated Active Directory"  },
+                            new { value = "Local Account" , text = "Local Account" }
+                        },
+                        "value",
+                        "text",
+                        Model.accountType
+                    ),
+                    new { @class = "form-control" }
+                )
+                @Html.ValidationMessageFor(model => model.accountType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" id="divLocalAccount">
+            <label class="control-label col-md-2" for="signInName">Email Address</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.signInName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.signInName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div id="divFederated" style="display:none">
+            <div class="form-group">
+                <label class="control-label col-md-2" for="issuer">Issuer</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.issuer, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.issuer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="issuerUserId">Issuer User ID</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.issuerUserId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.issuerUserId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <hr />
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="displayName">Display Name</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.displayName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.displayName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="firstName">First Name</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="lastName">Last Name</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="extension_Organization">Organization</label>
+            <div class="col-md-10">
+                <p class="form-control-static">@Html.DisplayFor(model => model.extension_Organization)</p>
+                @Html.HiddenFor(model => model.extension_Organization)
+                @Html.ValidationMessageFor(model => model.extension_Organization, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="extension_UserRole">User Role</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.extension_UserRole,
+                    new SelectList(
+                        new List<Object>
+                        {
+                            new { value = "Admin" , text = "Admin"  },
+                            new { value = "User" , text = "User" }
+                        },
+                        "value",
+                        "text",
+                        Model.extension_UserRole
+                    ),
+                    new { @class = "form-control" }
+                )
+                @Html.ValidationMessageFor(model => model.extension_UserRole, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#accountType').on('change', function (event) {
+                var accountType = $('#accountType').val();
+                if (accountType == 'Local Account') {
+                    $('#divLocalAccount').show();
+                    $('#divFederated').hide();
+                }
+                else {
+                    $('#divFederated').show();
+                    $('#divLocalAccount').hide();
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AADB2C.GraphService", "AADB2C.GraphService\AADB2C.GraphService.csproj", "{6BF2A7D2-7579-41B6-9038-FFFA0B7A4545}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AADB2C.UserAdmin", "AADB2C.UserAdmin\AADB2C.UserAdmin.csproj", "{78908CDA-025C-4547-B180-9253B197871C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AADB2C.UserMigration", "AADB2C.UserMigration\AADB2C.UserMigration.csproj", "{D5D39D03-260A-45D8-A8B5-0619211FF06F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6BF2A7D2-7579-41B6-9038-FFFA0B7A4545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BF2A7D2-7579-41B6-9038-FFFA0B7A4545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BF2A7D2-7579-41B6-9038-FFFA0B7A4545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BF2A7D2-7579-41B6-9038-FFFA0B7A4545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78908CDA-025C-4547-B180-9253B197871C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78908CDA-025C-4547-B180-9253B197871C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78908CDA-025C-4547-B180-9253B197871C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78908CDA-025C-4547-B180-9253B197871C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5D39D03-260A-45D8-A8B5-0619211FF06F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5D39D03-260A-45D8-A8B5-0619211FF06F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5D39D03-260A-45D8-A8B5-0619211FF06F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5D39D03-260A-45D8-A8B5-0619211FF06F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {753CC7BA-EDE9-41C3-AF16-2B7F593C2510}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://nimccoll.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AADB2C.GraphService\\AADB2C.GraphService.csproj
+		SccProjectName1 = AADB2C.GraphService
+		SccLocalPath1 = AADB2C.GraphService
+		SccProjectUniqueName2 = AADB2C.UserAdmin\\AADB2C.UserAdmin.csproj
+		SccProjectName2 = AADB2C.UserAdmin
+		SccLocalPath2 = AADB2C.UserAdmin
+		SccProjectUniqueName3 = AADB2C.UserMigration\\AADB2C.UserMigration.csproj
+		SccProjectName3 = AADB2C.UserMigration
+		SccLocalPath3 = AADB2C.UserMigration
+	EndGlobalSection
+EndGlobal

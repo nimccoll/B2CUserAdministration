@@ -1,0 +1,50 @@
+﻿<!--
+//===============================================================================
+// Microsoft FastTrack for Azure
+// Azure Active Directory B2C User Management Samples
+//===============================================================================
+// Copyright © Microsoft Corporation.  All rights reserved.
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY
+// OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+// FITNESS FOR A PARTICULAR PURPOSE.
+//===============================================================================
+-->
+@{
+    ViewBag.Title = "Find User";
+}
+
+<h2>Find User</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @if (ViewBag.Message != null)
+        {
+            <p>@ViewBag.Message</p>
+        }
+        <hr />
+        <div class="form-group">
+            <label class="control-label col-md-2" for="signInName">Email Address</label>
+            <div class="col-md-10">
+                <input type="text" name="emailAddress" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Find" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,68 @@
+﻿@model AADB2C.GraphService.GraphAccounts
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create User", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Display Name
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            LastName
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.value) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.displayName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.givenName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.surname)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+</table>
+
+@if (TempData.ContainsKey("firstSkipToken") && TempData["firstSkipToken"].ToString() != "")
+{
+<nav aria-label="...">
+    <ul class="pager">
+        @if (TempData["firstSkipToken"].ToString() == Model.skipToken)
+        {
+            <li class="previous disabled">@Html.ActionLink("Previous", "List", new { skipToken = $"{Model.skipToken}&previous-page=true" })</li>
+        }
+        else
+        {
+            <li>@Html.ActionLink("Previous", "List", new { skipToken = $"{Model.skipToken}&previous-page=true" })</li>
+        }
+        @if (string.IsNullOrEmpty(Model.skipToken))
+        {
+            <li class="next disabled">@Html.ActionLink("Next", "List", new { skipToken = Model.skipToken })</li>
+        }
+        else
+        {
+            <li>@Html.ActionLink("Next", "List", new { skipToken = Model.skipToken })</li>
+        }
+    </ul>
+</nav>
+}
