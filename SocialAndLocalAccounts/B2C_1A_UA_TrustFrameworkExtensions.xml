@@ -44,12 +44,12 @@
       <TechnicalProfiles>
         <TechnicalProfile Id="login-NonInteractive">
           <Metadata>
-            <Item Key="client_id">d0edd819-ee30-45ed-82fb-529e5babfa9c</Item>
-            <Item Key="IdTokenAudience">ddade071-1d49-4b4e-9fbd-02dda24b3542</Item>
+            <Item Key="client_id">{ProxyIdentityExperienceFramework App ID}</Item>
+            <Item Key="IdTokenAudience">{IdentityExperienceFramework App ID}</Item>
           </Metadata>
           <InputClaims>
-            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="d0edd819-ee30-45ed-82fb-529e5babfa9c" />
-            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="ddade071-1d49-4b4e-9fbd-02dda24b3542" />
+            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="{ProxyIdentityExperienceFramework App ID}" />
+            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="{IdentityExperienceFramework App ID}" />
           </InputClaims>
         </TechnicalProfile>
       </TechnicalProfiles>
